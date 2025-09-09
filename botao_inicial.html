@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Botão Play Verde</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+      text-align: center;
+    }
+
+    .play-button {
+      width: 150px; /* ajuste o tamanho da imagem */
+      cursor: pointer;
+      transition: transform 0.2s;
+      /* filtro para deixar a imagem verde */
+      filter: invert(47%) sepia(87%) saturate(502%) hue-rotate(82deg) brightness(95%) contrast(90%);
+    }
+
+    .play-button:hover {
+      transform: scale(1.1); /* aumenta levemente ao passar o mouse */
+    }
+  </style>
+</head>
+<body>
+  <h1>O jogo do início da vida universitária</h1>
+  <img class="play-button" src="imagens/play.png" alt="Começar">
+</body>
+</html>

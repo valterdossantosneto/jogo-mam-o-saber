@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Botões Centralizados</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column; /* coloca o texto em cima e os botões embaixo */
+      align-items: center;
+      gap: 20px; /* espaço entre os elementos */
+    }
+
+    .titulo {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #333;
+      text-align: center;
+    }
+
+    .botoes {
+      display: flex;
+      gap: 20px; /* espaço entre os botões */
+      flex-wrap: wrap; /* quebra linha se a tela for pequena */
+      justify-content: center;
+    }
+
+    .botao {
+      padding: 20px 40px;
+      border: 2px solid #007bff; /* contorno azul */
+      border-radius: 12px; /* cantos arredondados */
+      background-color: white;
+      cursor: pointer;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #007bff;
+      text-align: center;
+      transition: all 0.3s;
+      user-select: none; /* impede seleção de texto ao clicar */
+    }
+
+    .botao:hover {
+      background-color: #007bff;
+      color: white;
+      transform: scale(1.05); /* efeito de clique leve */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="titulo">Escolha seu personagem</div>
+    <div class="botoes">
+      <div class="botao">Meninas idade: 18 anos estudante de odontologia</div>
+      <div class="botao">Meninos idade: 19 anos estudante de direito</div>
+    </div>
+  </div>
+</body>
+</html>
+
