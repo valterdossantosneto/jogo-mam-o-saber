@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Botões Centralizados</title>
+  <title>Escolha seu personagem</title>
   <style>
     body {
       margin: 0;
@@ -17,9 +17,9 @@
 
     .container {
       display: flex;
-      flex-direction: column; /* coloca o texto em cima e os botões embaixo */
+      flex-direction: column;
       align-items: center;
-      gap: 20px; /* espaço entre os elementos */
+      gap: 30px;
     }
 
     .titulo {
@@ -31,29 +31,52 @@
 
     .botoes {
       display: flex;
-      gap: 20px; /* espaço entre os botões */
-      flex-wrap: wrap; /* quebra linha se a tela for pequena */
+      gap: 30px;
+      flex-wrap: wrap;
       justify-content: center;
     }
 
     .botao {
-      padding: 20px 40px;
-      border: 2px solid #007bff; /* contorno azul */
-      border-radius: 12px; /* cantos arredondados */
+      width: 220px;
+      padding: 20px;
+      border: 2px solid #007bff;
+      border-radius: 16px;
       background-color: white;
       cursor: pointer;
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: #007bff;
+      font-size: 1rem;
+      color: #333;
       text-align: center;
       transition: all 0.3s;
-      user-select: none; /* impede seleção de texto ao clicar */
+      user-select: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .botao img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      border: 2px solid #007bff;
+      object-fit: cover;
+    }
+
+    .botao strong {
+      font-size: 1.2rem;
+      color: #007bff;
+      margin-bottom: 8px;
     }
 
     .botao:hover {
       background-color: #007bff;
       color: white;
-      transform: scale(1.05); /* efeito de clique leve */
+      transform: scale(1.05);
+    }
+
+    .botao:hover strong {
+      color: white;
     }
   </style>
 </head>
@@ -61,10 +84,19 @@
   <div class="container">
     <div class="titulo">Escolha seu personagem</div>
     <div class="botoes">
-      <div class="botao">Meninas idade: 18 anos estudante de odontologia</div>
-      <div class="botao">Meninos idade: 19 anos estudante de direito</div>
+      <div class="botao">
+        <img src="https://i.pravatar.cc/150?img=47" alt="Menina">
+        <strong>Ana Clara</strong>
+        <p>18 anos<br>Estudante de Odontologia<br>Curiosa e determinada<br>objetivo: aparelhos para o curso </p>
+      </div>
+      <div class="botao">
+        <img src="https://i.pravatar.cc/150?img=12" alt="Menino">
+        <strong>Lucas Silva</strong>
+        <p>19 anos<br>Estudante de Direito<br>Observador e comunicativo<br> Vem de outro estádo<br>Objetivo:<br>acomodação<br>fogão<br>botijão<br>geladeira<br>cama</p>
+      </div>
     </div>
   </div>
 </body>
 </html>
+
 
