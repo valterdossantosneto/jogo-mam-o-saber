@@ -15,7 +15,7 @@
       align-items: center;
       gap: 20px;
     }
- 
+
     .info {
       font-size: 1.2rem;
       font-weight: bold;
@@ -27,7 +27,7 @@
       gap: 20px;
       margin-top: 20px;
       width: 100%;
-      max-width: 1200px;
+      max-width: 1000px;
     }
 
     .card-container {
@@ -86,13 +86,18 @@
       font-size: 0.85rem;
     }
 
+    .suspeito {
+      border: 2px solid red;
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+    }
+
     .card-back {
       background-color: #28a745;
       color: white;
       transform: rotateY(180deg);
       justify-content: center;
       align-items: center;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       padding: 10px;
       text-align: center;
     }
@@ -100,227 +105,130 @@
 </head>
 <body>
 
-  <div class="info">Dinheiro: 2000,00 R$</div>
-  <div class="info">Tempo: 00:00:00</div>
+  <div class="info" id="dadosJogador"></div>
+  <div class="info">💰 Dinheiro: R$ 2.000,00</div>
+  <div class="info">⏱️ Tempo: 00:00:00</div>
+  <div class="info">🛒 Produtos disponíveis</div>
 
-  <div>
-    <div class="info">Produtos</div>   
-    <div class="cartas-container">
-
-      <!-- 20 PRODUTOS -->
-      <div class="card-container"><div class="card"><div class="card-front">
-        <img src="https://picsum.photos/300/200?random=1" alt="Geladeira">
-        <div class="content">
-          <h3>Geladeira Frost Free 400L</h3>
-          <p><strong>Preço:</strong> R$ 1.900,00</p>
-          <p><strong>Vendedor:</strong> Maria Silva</p>
-          <p><strong>Características:</strong><br>Marca: Brastemp<br>Cor: Inox<br>Consumo: A+<br>Garantia: 1 ano</p>
-          <p><strong>Entrega:</strong> Não </p>
-        </div>
-      </div><div class="card-back">Mais detalhes sobre a geladeira</div></div></div>
-
-      <div class="card-container"><div class="card"><div class="card-front">
-        <img src="https://picsum.photos/300/200?random=2" alt="Notebook">
-        <div class="content">
-          <h3>Notebook Dell i5</h3>
-          <p><strong>Preço:</strong> R$ 2.500,00</p>
-          <p><strong>Vendedor:</strong> João Pereira</p>
-          <p><strong>Características:</strong><br>RAM: 8GB<br>SSD: 256GB<br>Tela: 15.6"<br>Windows 11</p>
-        </div>
-      </div><div class="card-back">Mais informações sobre o notebook</div></div></div>
-
-      <div class="card-container"><div class="card"><div class="card-front">
-        <img src="https://picsum.photos/300/200?random=3" alt="TV">
-        <div class="content">
-          <h3>Smart TV 50"</h3>
-          <p><strong>Preço:</strong> R$ 1.800,00</p>
-          <p><strong>Vendedor:</strong> Ana Souza</p>
-          <p><strong>Características:</strong><br>4K UHD<br>HDR10<br>Wi-Fi integrado<br>Garantia: 1 ano</p>
-        </div>
-      </div><div class="card-back">Mais informações sobre a TV</div></div></div>
-
-      <div class="card-container"><div class="card"><div class="card-front">
-        <img src="https://picsum.photos/300/200?random=4" alt="Celular">
-        <div class="content">
-          <h3>iPhone 13</h3>
-          <p><strong>Preço:</strong> R$ 4.500,00</p>
-          <p><strong>Vendedor:</strong> Pedro Lima</p>
-          <p><strong>Características:</strong><br>128GB<br>Câmera dupla 12MP<br>iOS 16<br>Garantia: 6 meses</p>
-        </div>
-      </div><div class="card-back">Mais informações sobre o iPhone</div></div></div>
-
-      <div class="card-container"><div class="card"><div class="card-front">
-        <img src="https://picsum.photos/300/200?random=5" alt="Bicicleta">
-        <div class="content">
-          <h3>Bicicleta Aro 29</h3>
-          <p><strong>Preço:</strong> R$ 1.200,00</p>
-          <p><strong>Vendedor:</strong> Lucas Almeida</p>
-          <p><strong>Características:</strong><br>21 marchas<br>Freio a disco<br>Suspensão dianteira</p>
-        </div>
-      </div><div class="card-back">Mais informações sobre a bicicleta</div></div></div>
-
-      <div class="card-container"><div class="card"><div class="card-front">
-        <img src="https://picsum.photos/300/200?random=6" alt="Fogão">
-        <div class="content">
-          <h3>Fogão 4 bocas</h3>
-          <p><strong>Preço:</strong> R$ 800,00</p>
-          <p><strong>Vendedor:</strong> Carla Menezes</p>
-          <p><strong>Características:</strong><br>Acendimento automático<br>Forno com grill<br>Cor: Branco</p>
-        </div>
-      </div><div class="card-back">Mais informações sobre o fogão</div></div></div>
-
-      <div class="card-container"><div class="card"><div class="card-front">
-        <img src="https://picsum.photos/300/200?random=7" alt="Micro-ondas">
-        <div class="content">
-          <h3>Micro-ondas 30L</h3>
-          <p><strong>Preço:</strong> R$ 450,00</p>
-          <p><strong>Vendedor:</strong> Roberto Dias</p>
-          <p><strong>Características:</strong><br>Função descongelar<br>Painel digital<br>Cor: Preto</p>
-        </div>
-      </div><div class="card-back">Mais informações sobre o micro-ondas</div></div></div>
-
-      <div class="card-container"><div class="card"><div class="card-front">
-        <img src="https://picsum.photos/300/200?random=8" alt="Máquina de lavar">
-        <div class="content">
-          <h3>Máquina de Lavar 12kg</h3>
-          <p><strong>Preço:</strong> R$ 1.300,00</p>
-          <p><strong>Vendedor:</strong> Fernanda Castro</p>
-          <p><strong>Características:</strong><br>Automática<br>Vários programas<br>Eficiência A+</p>
-        </div>
-      </div><div class="card-back">Mais informações sobre a lavadora</div></div></div>
-
-      <div class="card-container"><div class="card"><div class="card-front">
-        <img src="https://picsum.photos/300/200?random=9" alt="Câmera">
-        <div class="content">
-          <h3>Câmera Canon EOS</h3>
-          <p><strong>Preço:</strong> R$ 3.200,00</p>
-          <p><strong>Vendedor:</strong> Marcos Silva</p>
-          <p><strong>Características:</strong><br>24MP<br>Gravação 4K<br>Lente 18-55mm</p>
-        </div>
-      </div><div class="card-back">Mais informações sobre a câmera</div></div></div>
-
-      <div class="card-container"><div class="card"><div class="card-front">
-        <img src="https://picsum.photos/300/200?random=10" alt="Sofá">
-        <div class="content">
-          <h3>Sofá Retrátil</h3>
-          <p><strong>Preço:</strong> R$ 1.700,00</p>
-          <p><strong>Vendedor:</strong> Juliana Rocha</p>
-          <p><strong>Características:</strong><br>3 lugares<br>Suede cinza<br>Reclinável</p>
-        </div>
-      </div><div class="card-back">Mais informações sobre o sofá</div></div></div>
-
-      <!-- repete até 20 -->
-      <div class="card-container"><div class="card"><div class="card-front">
-        <img src="https://picsum.photos/300/200?random=11" alt="Mesa de jantar">
-        <div class="content">
-          <h3>Mesa de Jantar 6 lugares</h3>
-          <p><strong>Preço:</strong> R$ 2.000,00</p>
-          <p><strong>Vendedor:</strong> André Costa</p>
-          <p><strong>Características:</strong><br>Madeira maciça<br>Cadeiras estofadas</p>
-        </div>
-      </div><div class="card-back">Mais informações sobre a mesa</div></div></div>
-
-      <div class="card-container"><div class="card"><div class="card-front">
-        <img src="https://picsum.photos/300/200?random=12" alt="Ar-condicionado">
-        <div class="content">
-          <h3>Ar-condicionado Split 9000 BTUs</h3>
-          <p><strong>Preço:</strong> R$ 1.600,00</p>
-          <p><strong>Vendedor:</strong> Camila Nunes</p>
-          <p><strong>Características:</strong><br>Frio<br>Controle remoto<br>Silencioso</p>
-        </div>
-      </div><div class="card-back">Mais informações sobre o ar-condicionado</div></div></div>
-
-      <div class="card-container"><div class="card"><div class="card-front">
-        <img src="https://picsum.photos/300/200?random=13" alt="Violão">
-        <div class="content">
-          <h3>Violão Yamaha</h3>
-          <p><strong>Preço:</strong> R$ 700,00</p>
-          <p><strong>Vendedor:</strong> Felipe Torres</p>
-          <p><strong>Características:</strong><br>Acústico<br>Cor: Natural<br>Capa inclusa</p>
-        </div>
-      </div><div class="card-back">Mais informações sobre o violão</div></div></div>
-
-      <div class="card-container"><div class="card"><div class="card-front">
-        <img src="https://picsum.photos/300/200?random=14" alt="Tênis">
-        <div class="content">
-          <h3>Tênis Nike Air</h3>
-          <p><strong>Preço:</strong> R$ 400,00</p>
-          <p><strong>Vendedor:</strong> Daniel Martins</p>
-          <p><strong>Características:</strong><br>Número 42<br>Cor: Preto<br>Original</p>
-        </div>
-      </div><div class="card-back">Mais informações sobre o tênis</div></div></div>
-
-      <div class="card-container"><div class="card"><div class="card-front">
-        <img src="https://picsum.photos/300/200?random=15" alt="Relógio">
-        <div class="content">
-          <h3>Relógio Casio</h3>
-          <p><strong>Preço:</strong> R$ 250,00</p>
-          <p><strong>Vendedor:</strong> Beatriz Santos</p>
-          <p><strong>Características:</strong><br>Digital<br>Resistente à água</p>
-        </div>
-      </div><div class="card-back">Mais informações sobre o relógio</div></div></div>
-
-      <div class="card-container"><div class="card"><div class="card-front">
-        <img src="https://picsum.photos/300/200?random=16" alt="Mochila">
-        <div class="content">
-          <h3>Mochila Escolar</h3>
-          <p><strong>Preço:</strong> R$ 120,00</p>
-          <p><strong>Vendedor:</strong> Sofia Mendes</p>
-          <p><strong>Características:</strong><br>Compartimento para notebook<br>Impermeável</p>
-        </div>
-      </div><div class="card-back">Mais informações sobre a mochila</div></div></div>
-
-      <div class="card-container"><div class="card"><div class="card-front">
-        <img src="https://picsum.photos/300/200?random=17" alt="Cafeteira">
-        <div class="content">
-          <h3>Cafeteira Elétrica</h3>
-          <p><strong>Preço:</strong> R$ 180,00</p>
-          <p><strong>Vendedor:</strong> Gustavo Ribeiro</p>
-          <p><strong>Características:</strong><br>15 xícaras<br>Cor: Preto</p>
-        </div>
-      </div><div class="card-back">Mais informações sobre a cafeteira</div></div></div>
-
-      <div class="card-container"><div class="card"><div class="card-front">
-        <img src="https://picsum.photos/300/200?random=18" alt="Aspirador">
-        <div class="content">
-          <h3>Aspirador de Pó</h3>
-          <p><strong>Preço:</strong> R$ 350,00</p>
-          <p><strong>Vendedor:</strong> Carolina Freitas</p>
-          <p><strong>Características:</strong><br>Potência: 1200W<br>Filtro HEPA</p>
-        </div>
-      </div><div class="card-back">Mais informações sobre o aspirador</div></div></div>
-
-      <div class="card-container"><div class="card"><div class="card-front">
-        <img src="https://picsum.photos/300/200?random=19" alt="Monitor">
-        <div class="content">
-          <h3>Monitor LG 24"</h3>
-          <p><strong>Preço:</strong> R$ 900,00</p>
-          <p><strong>Vendedor:</strong> Eduardo Farias</p>
-          <p><strong>Características:</strong><br>Full HD<br>IPS<br>HDMI</p>
-        </div>
-      </div><div class="card-back">Mais informações sobre o monitor</div></div></div>
-
-      <div class="card-container"><div class="card"><div class="card-front">
-        <img src="https://picsum.photos/300/200?random=20" alt="Impressora">
-        <div class="content">
-          <h3>Impressora Multifuncional</h3>
-          <p><strong>Preço:</strong> R$ 600,00</p>
-          <p><strong>Vendedor:</strong> Patrícia Gomes</p>
-          <p><strong>Características:</strong><br>Wi-Fi<br>Impressão colorida<br>Scanner</p>
-        </div>
-      </div><div class="card-back">Mais informações sobre a impressora</div></div></div>
-
-    </div>
-  </div>
+  <div class="cartas-container" id="produtosContainer"></div>
 
   <script>
-    document.querySelectorAll('.card').forEach(card => {
-      card.addEventListener('click', () => {
-        card.classList.toggle('flipped');
-      });
+    // Recupera dados do jogador
+    const nome = localStorage.getItem("nomeUsuario") || "Jogador";
+    const personagem = localStorage.getItem("personagemEscolhido") || "Personagem não definido";
+
+    document.getElementById("dadosJogador").textContent = `👤 ${nome} jogando como ${personagem}`;
+
+    // Produtos específicos por personagem
+    const produtos = {
+      "Ana Clara": [
+        {
+          img: "https://m.media-amazon.com/images/I/71uS1HTvL3L._AC_SL1500_.jpg",
+          nome: "Espelho Odontológico",
+          preco: "R$ 250,00",
+          vendedor: "OdontoTools",
+          entrega: "Sim",
+          descricao: "Ferramenta essencial para estudantes de odontologia.",
+          suspeito: false
+        },
+        {
+          img: "https://cdn.awsli.com.br/600x700/1186/1186796/produto/239948493/boca-odontologia-kit-completo-para-faculdade-lh82huybdi.jpg",
+          nome: "Kit Odontológico Completo",
+          preco: "R$ 1.500,00",
+          vendedor: "Dental Prime",
+          entrega: "Sim",
+          descricao: "Kit completo com alicates, espelhos e bandejas.",
+          suspeito: false
+        },
+        {
+          img: "https://m.media-amazon.com/images/I/61hQHUmqQPL._AC_SL1500_.jpg",
+          nome: "Alicate Ortodôntico",
+          preco: "R$ 90,00",
+          vendedor: "Conta nova - desconto",
+          entrega: "PIX antecipado",
+          descricao: "Desconfie de preços muito baixos.",
+          suspeito: true
+        }
+      ],
+      "Lucas Silva": [
+        {
+          img: "https://m.media-amazon.com/images/I/71HK0bW9HHL._AC_SL1500_.jpg",
+          nome: "Geladeira Frost Free 400L",
+          preco: "R$ 1.900,00",
+          vendedor: "Maria Silva",
+          entrega: "Sim",
+          descricao: "Produto verificado e em ótimo estado.",
+          suspeito: false
+        },
+        {
+          img: "https://m.media-amazon.com/images/I/71pUGxYxvHL._AC_SL1500_.jpg",
+          nome: "Fogão 4 Bocas Brastemp",
+          preco: "R$ 850,00",
+          vendedor: "João Pereira",
+          entrega: "Sim",
+          descricao: "Com nota fiscal e garantia de 6 meses.",
+          suspeito: false
+        },
+        {
+          img: "https://m.media-amazon.com/images/I/71veEObW53L._AC_SL1500_.jpg",
+          nome: "Cama de Solteiro",
+          preco: "R$ 600,00",
+          vendedor: "Lojas Estudante",
+          entrega: "Sim",
+          descricao: "Cama confortável, ideal para quarto pequeno.",
+          suspeito: false
+        },
+        {
+          img: "https://m.media-amazon.com/images/I/61VJYcSFFVL._AC_SL1500_.jpg",
+          nome: "Botijão de Gás",
+          preco: "R$ 220,00",
+          vendedor: "Gás e Cia",
+          entrega: "Sim",
+          descricao: "Produto verificado pela plataforma ✅",
+          suspeito: false
+        },
+        {
+          img: "https://m.media-amazon.com/images/I/61hxWxoQxVL._AC_SL1500_.jpg",
+          nome: "PlayStation 5 Novo",
+          preco: "R$ 700,00",
+          vendedor: "Usuário excluído",
+          entrega: "Não informada",
+          descricao: "Anúncio potencialmente fraudulento!",
+          suspeito: true
+        }
+      ]
+    };
+
+    const container = document.getElementById("produtosContainer");
+    const lista = produtos[personagem] || [];
+
+    lista.forEach(p => {
+      const card = document.createElement("div");
+      card.classList.add("card-container");
+      card.innerHTML = `
+        <div class="card ${p.suspeito ? 'suspeito' : ''}">
+          <div class="card-front">
+            <img src="${p.img}" alt="${p.nome}">
+            <div class="content">
+              <h3>${p.nome}</h3>
+              <p><strong>Preço:</strong> ${p.preco}</p>
+              <p><strong>Vendedor:</strong> ${p.vendedor}</p>
+              <p><strong>Entrega:</strong> ${p.entrega}</p>
+              <p>${p.descricao}</p>
+            </div>
+          </div>
+          <div class="card-back">
+            ${p.suspeito ? "🚨 Produto suspeito! Verifique antes de pagar!" : "✅ Produto confiável e verificado"}
+          </div>
+        </div>`;
+      container.appendChild(card);
+    });
+
+    // Efeito de virar o card
+    document.addEventListener("click", e => {
+      const card = e.target.closest(".card");
+      if (card) card.classList.toggle("flipped");
     });
   </script>
-
 </body>
 </html>
-

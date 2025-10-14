@@ -22,22 +22,49 @@
     }
 
     .play-button {
-      width: 150px; /* ajuste o tamanho da imagem */
+      width: 150px;
       cursor: pointer;
       transition: transform 0.2s;
-      /* filtro para deixar a imagem verde */
       filter: invert(47%) sepia(87%) saturate(502%) hue-rotate(82deg) brightness(95%) contrast(90%);
     }
 
     .play-button:hover {
-      transform: scale(1.1); /* aumenta levemente ao passar o mouse */
+      transform: scale(1.1);
+    }
+
+    input {
+      padding: 8px;
+      margin-top: 10px;
+      font-size: 1em;
+      border-radius: 5px;
+      border: 1px solid #aaa;
+      text-align: center;
     }
   </style>
 </head>
 <body>
   <h1>O jogo do início da vida universitária</h1>
   <span>Digite seu nome:</span>
-  <input type="text"/>
-  <img class="play-button" src="imagens/play.png" alt="Começar">
+  <input type="text" id="nomeUsuario" placeholder="Seu nome">
+  
+  <!-- Removido o link <a> -->
+  <img class="play-button" src="imagens/play.png" alt="Começar" onclick="iniciarJogo()">
+
+  <script>
+    function iniciarJogo() {
+      const nome = document.getElementById("nomeUsuario").value.trim();
+
+      if (nome === "") {
+        alert("Por favor, digite seu nome antes de começar!");
+        return;
+      }
+
+      // Armazena o nome no localStorage
+      localStorage.setItem("nomeUsuario", nome);
+
+      // Redireciona para a próxima página somente se tiver nome
+      window.location.href = "personagem.html";
+    }
+  </script>
 </body>
 </html>

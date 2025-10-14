@@ -20,13 +20,13 @@
       flex-direction: column;
       align-items: center;
       gap: 30px;
+      text-align: center;
     }
 
     .titulo {
       font-size: 2rem;
       font-weight: bold;
       color: #333;
-      text-align: center;
     }
 
     .botoes {
@@ -84,19 +84,47 @@
   <div class="container">
     <div class="titulo">Escolha seu personagem</div>
     <div class="botoes">
-      <div class="botao">
+      <div class="botao" onclick="selecionarPersonagem('Ana Clara', '18 anos', 'Odontologia', 'Curiosa e determinada', 'aparelhos para o curso')">
         <img src="https://i.pravatar.cc/150?img=47" alt="Menina">
         <strong>Ana Clara</strong>
-        <p>18 anos<br>Estudante de Odontologia<br>Curiosa e determinada<br>objetivo: aparelhos para o curso </p>
+        <p>18 anos<br>Estudante de Odontologia<br>Curiosa e determinada<br>Objetivo: aparelhos para o curso</p>
       </div>
-      <div class="botao">
+
+      <div class="botao" onclick="selecionarPersonagem('Lucas Silva', '19 anos', 'Direito', 'Observador e comunicativo', 'acomodação, fogão, botijão, geladeira e cama')">
         <img src="https://i.pravatar.cc/150?img=12" alt="Menino">
         <strong>Lucas Silva</strong>
-        <p>19 anos<br>Estudante de Direito<br>Observador e comunicativo<br> Vem de outro estádo<br>Objetivo:<br>acomodação<br>fogão<br>botijão<br>geladeira<br>cama</p>
+        <p>19 anos<br>Estudante de Direito<br>Observador e comunicativo<br>Vem de outro estado<br>Objetivo: acomodação, fogão, botijão, geladeira, cama</p>
       </div>
     </div>
   </div>
+
+  <script>
+    function selecionarPersonagem(nome, idade, curso, descricao, objetivo) {
+      const nomeUsuario = localStorage.getItem("nomeUsuario");
+
+      if (!nomeUsuario) {
+        alert("Você precisa digitar seu nome na página inicial antes de jogar!");
+        window.location.href = "inicio.html";
+        return;
+      }
+
+      const personagem = {
+        nomePersonagem: nome,
+        idade: idade,
+        curso: curso,
+        descricao: descricao,
+        objetivo: objetivo
+      };
+
+      // Armazena personagem e nome do jogador juntos
+      localStorage.setItem("personagemSelecionado", JSON.stringify(personagem));
+
+      // Vai para a próxima página
+      window.location.href = "jogo.html";
+    }
+  </script>
 </body>
 </html>
+
 
 
