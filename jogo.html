@@ -6,229 +6,93 @@
   <title>Catálogo de Produtos</title>
   <style>
     body {
-      margin: 0;
-      padding: 20px;
-      font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
-      display: flex;
-      flex-direction: column;
+      
+    }  
+    .botao{
+      height: 80px;
+      width: 80px;
+      border: solid 1px green;
+      border-radius: 5px;
+      padding: 2px;
+      margin-top: 10px;
       align-items: center;
-      gap: 20px;
-    }
-
-    .info {
-      font-size: 1.2rem;
-      font-weight: bold;
-    }
-
-    .cartas-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
-      width: 100%;
-      max-width: 1000px;
-    }
-
-    .card-container {
-      perspective: 1000px;
-    }
-
-    .card {
-      width: 100%;
-      height: 320px;
-      position: relative;
-      transform-style: preserve-3d;
-      transition: transform 0.6s;
-      cursor: pointer;
-      border-radius: 12px;
-    }
-
-    .card.flipped {
-      transform: rotateY(180deg);
-    }
-
-    .card-front, .card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      border-radius: 12px;
-      overflow: hidden;
-      background: #fff;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .card-front img {
-      width: 100%;
-      height: 140px;
-      object-fit: cover;
-      border-bottom: 2px solid #ddd;
-    }
-
-    .card-front .content {
-      padding: 10px;
-      font-size: 0.9rem;
-      color: #333;
-      overflow-y: auto;
-    }
-
-    .card-front h3 {
-      margin: 5px 0;
-      font-size: 1rem;
-      color: #007bff;
-    }
-
-    .card-front p {
-      margin: 4px 0;
-      font-size: 0.85rem;
-    }
-
-    .suspeito {
-      border: 2px solid red;
-      box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
-    }
-
-    .card-back {
-      background-color: #28a745;
-      color: white;
-      transform: rotateY(180deg);
-      justify-content: center;
-      align-items: center;
-      font-size: 1.1rem;
-      padding: 10px;
       text-align: center;
+    }
+    .barra_vida{
+      height: 20px;
+      width: 100px;
+      border: solid 1px green;
+      border-radius: 5px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    .planta{
+      background-color: black;
     }
   </style>
 </head>
 <body>
+  <div>
+    tempo de vida: 00:00
+  </div>
+  <div class="botao">
+    Pragas<br> e <br>sintomas
+  </div>
+  <div class="botao">
+    Sementes
+  </div>
+  <div class="botao">
+    defensivos
+  </div>
+  <div>
+    Barra de vida
+    <div class="barra_vida">
+    </div>
+  </div>
+  <div class="planta">
+    <div>
+      <img src="imagens\semente.png" alt="semente de mamão">
+    </div>
+    <div>
+      <img src="imagens\broto1.png" alt="semente de mamão">
+    </div>
+    <div>
+      <img src="imagens\broto2.png" alt="semente de mamão">
+    </div>
+    <div>
+      <img src="imagens\folha1.png" alt="semente de mamão">
+    </div>
+    <div>
+      <img src="imagens\folha2.png" alt="semente de mamão">
+    </div>
+    <div>
+      <img src="imagens\folha3.png" alt="semente de mamão">
+    </div>
+    <div>
+      <img src="imagens\folha4.png" alt="semente de mamão">
+    </div>
+    <div>
+      <img src="imagens\folha5.png" alt="semente de mamão">
+    </div>
+    <div>
+      <img src="imagens\folha6.png" alt="semente de mamão">
+    </div>
+    <div>
+      <img src="imagens\folha7.png" alt="semente de mamão">
+    </div>
+    <div>
+      <img src="imagens\florfruto.png" alt="semente de mamão">
+    </div>
+    <div>
+      <img src="imagens\plantamorta.png" alt="semente de mamão">
+    </div>
+  </div>
+  <div>
 
-  <div class="info" id="dadosJogador"></div>
-  <div class="info">💰 Dinheiro: R$ 2.000,00</div>
-  <div class="info">⏱️ Tempo: 00:00:00</div>
-  <div class="info">🛒 Produtos disponíveis</div>
-
-  <div class="cartas-container" id="produtosContainer"></div>
+  </div>
 
   <script>
-    // Recupera dados do jogador
-    const nome = localStorage.getItem("nomeUsuario") || "Jogador";
-    const personagem = localStorage.getItem("personagemEscolhido") || "Personagem não definido";
-
-    document.getElementById("dadosJogador").textContent = `👤 ${nome} jogando como ${personagem}`;
-
-    // Produtos específicos por personagem
-    const produtos = {
-      "Ana Clara": [
-        {
-          img: "https://m.media-amazon.com/images/I/71uS1HTvL3L._AC_SL1500_.jpg",
-          nome: "Espelho Odontológico",
-          preco: "R$ 250,00",
-          vendedor: "OdontoTools",
-          entrega: "Sim",
-          descricao: "Ferramenta essencial para estudantes de odontologia.",
-          suspeito: false
-        },
-        {
-          img: "https://cdn.awsli.com.br/600x700/1186/1186796/produto/239948493/boca-odontologia-kit-completo-para-faculdade-lh82huybdi.jpg",
-          nome: "Kit Odontológico Completo",
-          preco: "R$ 1.500,00",
-          vendedor: "Dental Prime",
-          entrega: "Sim",
-          descricao: "Kit completo com alicates, espelhos e bandejas.",
-          suspeito: false
-        },
-        {
-          img: "https://m.media-amazon.com/images/I/61hQHUmqQPL._AC_SL1500_.jpg",
-          nome: "Alicate Ortodôntico",
-          preco: "R$ 90,00",
-          vendedor: "Conta nova - desconto",
-          entrega: "PIX antecipado",
-          descricao: "Desconfie de preços muito baixos.",
-          suspeito: true
-        }
-      ],
-      "Lucas Silva": [
-        {
-          img: "https://m.media-amazon.com/images/I/71HK0bW9HHL._AC_SL1500_.jpg",
-          nome: "Geladeira Frost Free 400L",
-          preco: "R$ 1.900,00",
-          vendedor: "Maria Silva",
-          entrega: "Sim",
-          descricao: "Produto verificado e em ótimo estado.",
-          suspeito: false
-        },
-        {
-          img: "https://m.media-amazon.com/images/I/71pUGxYxvHL._AC_SL1500_.jpg",
-          nome: "Fogão 4 Bocas Brastemp",
-          preco: "R$ 850,00",
-          vendedor: "João Pereira",
-          entrega: "Sim",
-          descricao: "Com nota fiscal e garantia de 6 meses.",
-          suspeito: false
-        },
-        {
-          img: "https://m.media-amazon.com/images/I/71veEObW53L._AC_SL1500_.jpg",
-          nome: "Cama de Solteiro",
-          preco: "R$ 600,00",
-          vendedor: "Lojas Estudante",
-          entrega: "Sim",
-          descricao: "Cama confortável, ideal para quarto pequeno.",
-          suspeito: false
-        },
-        {
-          img: "https://m.media-amazon.com/images/I/61VJYcSFFVL._AC_SL1500_.jpg",
-          nome: "Botijão de Gás",
-          preco: "R$ 220,00",
-          vendedor: "Gás e Cia",
-          entrega: "Sim",
-          descricao: "Produto verificado pela plataforma ✅",
-          suspeito: false
-        },
-        {
-          img: "https://m.media-amazon.com/images/I/61hxWxoQxVL._AC_SL1500_.jpg",
-          nome: "PlayStation 5 Novo",
-          preco: "R$ 700,00",
-          vendedor: "Usuário excluído",
-          entrega: "Não informada",
-          descricao: "Anúncio potencialmente fraudulento!",
-          suspeito: true
-        }
-      ]
-    };
-
-    const container = document.getElementById("produtosContainer");
-    const lista = produtos[personagem] || [];
-
-    lista.forEach(p => {
-      const card = document.createElement("div");
-      card.classList.add("card-container");
-      card.innerHTML = `
-        <div class="card ${p.suspeito ? 'suspeito' : ''}">
-          <div class="card-front">
-            <img src="${p.img}" alt="${p.nome}">
-            <div class="content">
-              <h3>${p.nome}</h3>
-              <p><strong>Preço:</strong> ${p.preco}</p>
-              <p><strong>Vendedor:</strong> ${p.vendedor}</p>
-              <p><strong>Entrega:</strong> ${p.entrega}</p>
-              <p>${p.descricao}</p>
-            </div>
-          </div>
-          <div class="card-back">
-            ${p.suspeito ? "🚨 Produto suspeito! Verifique antes de pagar!" : "✅ Produto confiável e verificado"}
-          </div>
-        </div>`;
-      container.appendChild(card);
-    });
-
-    // Efeito de virar o card
-    document.addEventListener("click", e => {
-      const card = e.target.closest(".card");
-      if (card) card.classList.toggle("flipped");
-    });
+   
   </script>
 </body>
 </html>
