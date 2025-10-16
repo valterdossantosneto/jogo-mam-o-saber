@@ -3,96 +3,204 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catálogo de Produtos</title>
+  <title>Simulação de Planta</title>
   <style>
     body {
-      
-    }  
-    .botao{
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-color: #f5f5f5;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Tempo de vida centralizado no topo */
+    .topo {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 10px;
+    }
+
+    /* Área principal: lateral esquerda (botões) + centro (planta) */
+    .conteudo {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Lateral esquerda com botões */
+    .botoes {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      gap: 10px;
+    }
+
+    .botao {
       height: 80px;
       width: 80px;
-      border: solid 1px green;
-      border-radius: 5px;
-      padding: 2px;
-      margin-top: 10px;
+      border: solid 2px green;
+      border-radius: 8px;
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
       align-items: center;
       text-align: center;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s;
     }
-    .barra_vida{
+
+    .botao:hover {
+      background-color: #e0ffe0;
+    }
+
+    /* Área da planta */
+    .area-planta {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .barra_vida {
       height: 20px;
-      width: 100px;
-      border: solid 1px green;
+      width: 150px;
+      border: solid 2px green;
       border-radius: 5px;
-      margin-top: 10px;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
+      background-color: #d0ffd0;
+      position: relative;
+      overflow: hidden;
     }
-    .planta{
-      background-color: black;
+
+    .barra_vida_progresso {
+      background-color: green;
+      height: 100%;
+      width: 100%;
+      transition: width 1s linear;
+    }
+
+    .planta {
+      background-color: #000;
+      padding: 20px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .planta img {
+      max-width: 200px;
+      display: none;
+    }
+
+    .planta img.ativa {
+      display: block;
     }
   </style>
 </head>
 <body>
-  <div>
-    tempo de vida: 00:00
-  </div>
-  <div class="botao">
-    Pragas<br> e <br>sintomas
-  </div>
-  <div class="botao">
-    Sementes
-  </div>
-  <div class="botao">
-    defensivos
-  </div>
-  <div>
-    Barra de vida
-    <div class="barra_vida">
-    </div>
-  </div>
-  <div class="planta">
-    <div>
-      <img src="imagens\semente.png" alt="semente de mamão">
-    </div>
-    <div>
-      <img src="imagens\broto1.png" alt="semente de mamão">
-    </div>
-    <div>
-      <img src="imagens\broto2.png" alt="semente de mamão">
-    </div>
-    <div>
-      <img src="imagens\folha1.png" alt="semente de mamão">
-    </div>
-    <div>
-      <img src="imagens\folha2.png" alt="semente de mamão">
-    </div>
-    <div>
-      <img src="imagens\folha3.png" alt="semente de mamão">
-    </div>
-    <div>
-      <img src="imagens\folha4.png" alt="semente de mamão">
-    </div>
-    <div>
-      <img src="imagens\folha5.png" alt="semente de mamão">
-    </div>
-    <div>
-      <img src="imagens\folha6.png" alt="semente de mamão">
-    </div>
-    <div>
-      <img src="imagens\folha7.png" alt="semente de mamão">
-    </div>
-    <div>
-      <img src="imagens\florfruto.png" alt="semente de mamão">
-    </div>
-    <div>
-      <img src="imagens\plantamorta.png" alt="semente de mamão">
-    </div>
-  </div>
-  <div>
 
+  <div class="topo" id="tempoDeVida">
+    Tempo de vida: 00:00
+  </div>
+
+  <div class="conteudo">
+    <!-- Botões na lateral esquerda -->
+    <div class="botoes">
+      <div class="botao" id="btnAnterior">
+        <img src="imagens\g45860.png" alt="sementes de mamão">
+      </div>
+      <div class="botao" id="btnProximo">➡️</div>
+      <div class="botao" id="btnReset">🔄</div>
+    </div>
+
+    <!-- Planta centralizada com barra de vida acima -->
+    <div class="area-planta">
+      <div class="barra_vida">
+        <div class="barra_vida_progresso" id="barraProgresso"></div>
+      </div>
+
+      <div class="planta" id="planta">
+        <img src="imagens/semente.png" alt="semente" class="ativa">
+        <img src="imagens/broto1.png" alt="broto 1">
+        <img src="imagens/broto2.png" alt="broto 2">
+        <img src="imagens/folha1.png" alt="folha 1">
+        <img src="imagens/folha2.png" alt="folha 2">
+        <img src="imagens/folha3.png" alt="folha 3">
+        <img src="imagens/folha4.png" alt="folha 4">
+        <img src="imagens/folha5.png" alt="folha 5">
+        <img src="imagens/folha6.png" alt="folha 6">
+        <img src="imagens/folha7.png" alt="folha 7">
+        <img src="imagens/florfruto.png" alt="flor e fruto">
+        <img src="imagens/plantamorta.png" alt="planta morta">
+      </div>
+    </div>
   </div>
 
   <script>
-   
+    const imagens = document.querySelectorAll('#planta img');
+    const barra = document.getElementById('barraProgresso');
+    const tempoDeVida = document.getElementById('tempoDeVida');
+    let indice = 0;
+    let tempo = 0;
+    let vida = 100;
+
+    // Atualiza exibição da planta
+    function mostrarPlanta(i) {
+      imagens.forEach(img => img.classList.remove('ativa'));
+      imagens[i].classList.add('ativa');
+    }
+
+    // Atualiza tempo e barra de vida
+    function atualizarTempo() {
+      tempo++;
+      let minutos = Math.floor(tempo / 60);
+      let segundos = tempo % 60;
+      tempoDeVida.textContent = `Tempo de vida: ${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}`;
+
+      // Diminui vida gradualmente
+      vida -= 0.5;
+      barra.style.width = vida + '%';
+
+      // Evolui a planta automaticamente
+      if (tempo % 5 === 0 && indice < imagens.length - 1) {
+        indice++;
+        mostrarPlanta(indice);
+      }
+
+      // Planta morre
+      if (vida <= 0) {
+        clearInterval(intervalo);
+        indice = imagens.length - 1;
+        mostrarPlanta(indice);
+      }
+    }
+
+    const intervalo = setInterval(atualizarTempo, 1000);
+
+    // Botões manuais
+    document.getElementById('btnProximo').addEventListener('click', () => {
+      if (indice < imagens.length - 1) indice++;
+      mostrarPlanta(indice);
+    });
+
+    document.getElementById('btnAnterior').addEventListener('click', () => {
+      if (indice > 0) indice--;
+      mostrarPlanta(indice);
+    });
+
+    document.getElementById('btnReset').addEventListener('click', () => {
+      indice = 0;
+      vida = 100;
+      tempo = 0;
+      barra.style.width = '100%';
+      mostrarPlanta(indice);
+    });
   </script>
 </body>
 </html>
