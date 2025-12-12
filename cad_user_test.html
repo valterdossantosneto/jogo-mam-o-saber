@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .campoCreate {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            padding: 20px;
+            background: rgba(255, 255, 255, 1);
+            align-items: center;
+            justify-content: center;
+        }
+
+        #forme_create_user {
+            display: flex;
+            flex-direction: column;
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0px 0px 25px 10px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            border: 1px solid rgba(62, 91, 89, 1);
+            border-radius: 5px;
+        }
+
+        #forme_create_user label {
+            margin-bottom: 5px;
+            font-family: "Poppins";
+        }
+
+        #forme_create_user input {
+            padding: 5px;
+            margin-bottom: 5px;
+            width: 500px;
+            height: 30px;
+            background-color: rgba(221, 221, 221, 1);
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        #forme_create_user button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-family: "Poppins";
+            background-color: rgba(1, 153, 63, 1);
+            color: white;
+            cursor: pointer;
+            width: 500px;
+            height: 30px;
+            display: flex;
+            align-items: center;   /* centraliza verticalmente */
+            justify-content: center; /* centraliza horizontalmente */
+        }
+
+        #forme_create_user h1 {
+            font-family: "Open Sans";
+            text-align: center;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="campoCreate">
+        <div id="forme_create_user">
+            <h1>CADASTRO DE USUÁRIOS</h1>
+
+            <label>Email</label>
+            <input type="text" id="email">
+
+            <label>Senha</label>
+            <input type="password" id="senha">
+
+            <label>Nome</label>
+            <input type="text" id="nome">
+
+            <label>CPF</label>
+            <input type="text" id="cpf">
+
+            <button>Cadastrar</button>
+        </div>
+    </div>
+</body>
+</html>

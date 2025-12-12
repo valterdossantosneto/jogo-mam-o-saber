@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Login</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Poppins, sans-serif;
+        }
+
+        #container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: rgba(62, 91, 89, 1);
+        }
+
+        /* BLOCO LATERAL (menor largura) */
+        #blocolateral {
+            background-color: rgba(30, 50, 49, 1);
+            height: 320px;
+            width: 200px;       /* menor */
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+             box-sizing: border-box;
+        }
+
+        .blocolateral_texto {
+            border: 1px solid white;
+            border-radius: 5px;
+            padding: 5px;
+            margin-top: 20px;
+            font-size: 18px;
+            color: white;
+            text-align: center;
+        }
+
+        #logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        #ifs {
+            height: 80px;
+            width: 80px;
+        }
+
+        /* FORMULÁRIO (maior) */
+        #formulario {
+            height: 320px;
+            width: 300px;      /* maior */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            padding: 30px;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+             box-sizing: border-box;
+        }
+
+        .loginInput {
+            height: 32px;
+            width: 200px;
+            margin-bottom: 15px;
+            padding-left: 8px;
+            border: 1px solid #aaa;
+            border-radius: 4px;
+        }
+
+        #loginButton {
+            background-color: rgba(1, 153, 63, 1);
+            border: none;
+            height: 32px;
+            width: 200px;
+            border-radius: 4px;
+            font-size: 14px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 600px) {
+            #container {
+                flex-direction: column;
+            }
+            #blocolateral, #formulario {
+                width: 90%;
+                height: auto;
+                border-radius: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        
+        <!-- LADO MENOR -->
+        <div id="blocolateral">
+            <div id="logo">
+                <img id="ifs" src="C:\Users\IFMaker\Documents\jogoVeai\imagens\teste\marca Dinove vertical branca 1.png" alt="marca" />
+            </div>
+            <div class="blocolateral_texto">Bem vindo</div>
+        </div>
+
+        <!-- LADO MAIOR -->
+        <div id="formulario">
+            <form>
+                <input id="email" class="loginInput" placeholder="Insira seu email" type="email" required />
+                <br>
+                <input id="senha" class="loginInput" placeholder="Insira sua senha" type="password" required />
+                <br>
+                <button id="loginButton" type="submit">Acessar</button>
+            </form>
+        </div>
+
+    </div>
+</body>
+</html>
